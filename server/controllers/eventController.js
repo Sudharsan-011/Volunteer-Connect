@@ -71,3 +71,23 @@ export const getOrganizationEvents = async (req, res) => {
       .json({ message: "Error retrieving events", error: error.message });
   }
 };
+// Controller to get all events
+export const getAllEvents = async (req, res) => {
+  try {
+    // Query the database for all events
+    const events = await Event.find();
+
+    // If no events are found, return a 404 response
+    if (!events.length) {
+      return res.status(404).json({ message: "No events found" });
+    }
+
+    // Return all found events
+    res.status(200).json(events);
+  } catch (error) {
+    console.error("Error retrieving all events:", error);
+    res
+      .status(500)
+      .json({ message: "Error retrieving events", error: error.message });
+  }
+};

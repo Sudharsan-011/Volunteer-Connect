@@ -17,8 +17,12 @@ app.use(cors());
 app.use(express.json());
 
 // Database connection
+console.log("Mongo URI:", process.env.MONGO_URI); // Debugging line
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("Database connected"))
   .catch((error) => console.error("Database connection error:", error));
 

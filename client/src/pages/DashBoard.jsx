@@ -25,7 +25,7 @@ const Dashboard = () => {
         }
 
         // Fetch user data using axios
-        const response = await axios.get('http://localhost:5000/api/user/profile', {
+        const response = await axios.get('https://volunteer-connect-2.onrender.com/api/user/profile', {
           headers: {
             'Authorization': `Bearer ${token}`,  // Send the token in the Authorization header
           }
@@ -38,7 +38,7 @@ const Dashboard = () => {
         }
 
         // Fetch events for the organization using axios
-        const eventResponse = await axios.get('http://localhost:5000/api/events/organization-events', {
+        const eventResponse = await axios.get('https://volunteer-connect-2.onrender.com/api/events/organization-events', {
           headers: {
             'Authorization': `Bearer ${token}`,  // Send token in header
           }
@@ -87,7 +87,7 @@ const Dashboard = () => {
 
     try {
       // Post request to create the event
-      await axios.post('http://localhost:5000/api/events/create', newEvent, {
+      await axios.post('https://volunteer-connect-2.onrender.com/api/events/create', newEvent, {
         headers: {
           'Authorization': `Bearer ${token}`,  // Send token in the Authorization header
         }
@@ -106,7 +106,7 @@ const Dashboard = () => {
   const fetchEvents = async () => {
     try {
       const token = localStorage.getItem('token');
-      const eventResponse = await axios.get('http://localhost:5000/api/events/organization-events', {
+      const eventResponse = await axios.get('https://volunteer-connect-2.onrender.com/api/events/organization-events', {
         headers: {
           'Authorization': `Bearer ${token}`,  // Send token in header
         }

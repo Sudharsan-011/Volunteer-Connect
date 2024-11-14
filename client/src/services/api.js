@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000"; // Base URL without trailing slash
+const API_URL = "https://volunteer-connect-2.onrender.com"; // Base URL without trailing slash
 
 // Generic postData function
 export const postData = async (url, data) => {
